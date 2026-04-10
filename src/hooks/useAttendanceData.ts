@@ -40,6 +40,18 @@ export function useAttendanceData() {
     }
   };
 
+  const clearMaster = () => {
+    try {
+      localStorage.removeItem('ambrish_master');
+      setMaster([]);
+      window.dispatchEvent(new Event('master-updated'));
+      window.dispatchEvent(new Event('storage'));
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
   const saveWeek = (weekLabel: string, records: AttendanceRecord[]) => {
     try {
        const newRecord: WeekRecord = { weekLabel, date: new Date().toISOString(), records };
@@ -60,5 +72,5 @@ export function useAttendanceData() {
     window.dispatchEvent(new Event('storage'));
   };
 
-  return { master, history, saveMaster, saveWeek, deleteWeek };
+  return { master, history, saveMaster, clearMaster, saveWeek, deleteWeek };
 }

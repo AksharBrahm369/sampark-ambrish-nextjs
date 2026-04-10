@@ -1,6 +1,8 @@
 export type AttendanceRecord = {
   id: string;
   name: string;
+  middleName?: string;
+  lastName?: string;
   mobile?: string;
   area?: string;
   [key: string]: string | undefined;
