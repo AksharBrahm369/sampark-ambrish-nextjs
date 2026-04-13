@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { toast } from 'sonner'; 
+import { toast } from 'sonner';
 
 export default function Dashboard() {
   const [showClearDialog, setShowClearDialog] = useState(false);
@@ -170,7 +170,7 @@ export default function Dashboard() {
         entries.forEach(([colName, value]) => {
           const valueTrimmed = String(value ?? '').trim();
           const keyLower = cleanKey(colName);
-          
+
           // Skip columns we already explicitly matched to mobile/area/id
           if (
             keyLower.includes('mobile') ||

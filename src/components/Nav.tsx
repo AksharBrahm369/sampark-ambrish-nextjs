@@ -26,11 +26,10 @@ export function Nav() {
                 <Link
                   key={route.href}
                   href={route.href}
-                  className={`px-2 py-2 sm:px-3 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${
-                    isActive 
-                      ? 'bg-indigo-800 text-white' 
+                  className={`px-2 py-2 sm:px-3 sm:py-2 rounded-md text-xs sm:text-sm font-medium transition-colors ${isActive
+                      ? 'bg-indigo-800 text-white'
                       : 'text-indigo-100 hover:bg-indigo-700 hover:text-white'
-                  }`}
+                    }`}
                 >
                   {route.label}
                 </Link>
