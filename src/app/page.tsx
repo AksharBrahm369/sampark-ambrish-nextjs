@@ -303,7 +303,30 @@ export default function Dashboard() {
         Dashboard
       </h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 w-full">
+      <div className="grid grid-cols-1 gap-6 w-full">
+        <Card className="w-full">
+          <CardHeader className="p-4 sm:p-6">
+            <CardTitle className="text-lg sm:text-xl">Upload Ambrish XLSX / CSV</CardTitle>
+            <p className="text-xs sm:text-sm text-gray-500 mt-1">
+              Status: {master.length ? `${master.length} loaded` : 'Not loaded'}
+            </p>
+          </CardHeader>
+          <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0 space-y-4">
+            <Input type="file" accept=".xlsx,.csv" onChange={onMasterUpload} />
+            {master.length > 0 && (
+              <Button
+                variant="destructive"
+                className="w-full"
+                onClick={() => setShowClearDialog(true)}
+              >
+                Remove Data
+              </Button>
+            )}
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4 w-full">
         <Card>
           <CardHeader className="p-4 sm:py-6 text-center sm:text-left">
             <CardTitle className="text-sm sm:text-base text-gray-500">Total Ambrish</CardTitle>
@@ -327,29 +350,6 @@ export default function Dashboard() {
             <CardTitle className="text-sm sm:text-base text-gray-500">Attendance %</CardTitle>
             <div className="text-3xl font-bold">{attendanceRate}%</div>
           </CardHeader>
-        </Card>
-      </div>
-
-      <div className="grid grid-cols-1 gap-6 w-full">
-        <Card className="w-full">
-          <CardHeader className="p-4 sm:p-6">
-            <CardTitle className="text-lg sm:text-xl">Upload Ambrish XLSX / CSV</CardTitle>
-            <p className="text-xs sm:text-sm text-gray-500 mt-1">
-              Status: {master.length ? `${master.length} loaded` : 'Not loaded'}
-            </p>
-          </CardHeader>
-          <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0 space-y-4">
-            <Input type="file" accept=".xlsx,.csv" onChange={onMasterUpload} />
-            {master.length > 0 && (
-              <Button
-                variant="destructive"
-                className="w-full"
-                onClick={() => setShowClearDialog(true)}
-              >
-                Remove Data
-              </Button>
-            )}
-          </CardContent>
         </Card>
       </div>
 
